@@ -1,3 +1,3 @@
 # reddit
 
-A new Flutter project.
+A minimal reddit clone implementation with flutter 
