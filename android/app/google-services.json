@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "812906321465",
+    "project_id": "reddit-448f0",
+    "storage_bucket": "reddit-448f0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:812906321465:android:65a52c6a47c01ddeeadfe8",
+        "android_client_info": {
+          "package_name": "dev.hayohtee.reddit"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBXgofwb56VJks147MnoBnCPInirhm8VXk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
