@@ -12,7 +12,20 @@
           "package_name": "dev.hayohtee.reddit"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "812906321465-p0pl78j703i6rr15ilbvlnhnk86a93l1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "dev.hayohtee.reddit",
+            "certificate_hash": "340faee2449540c182dcb49c782edd7ab5450701"
+          }
+        },
+        {
+          "client_id": "812906321465-glpt1r17eoi76m0m4ebei963ult0ighf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyBXgofwb56VJks147MnoBnCPInirhm8VXk"
@@ -20,7 +33,19 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "812906321465-glpt1r17eoi76m0m4ebei963ult0ighf.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "812906321465-k9ntkopflcp0mlq3e321o1rsemjugc9g.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "dev.hayohtee.reddit"
+              }
+            }
+          ]
         }
       }
     }
