@@ -1,9 +1,21 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import 'features/auth/screens/login_screen.dart';
+import 'firebase_options.dart';
 import 'theme/app_theme.dart';
 
-void main() {
-  runApp(const MainApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+  runApp(
+    const ProviderScope(
+      child: MainApp(),
+    ),
+  );
 }
 
 class MainApp extends StatelessWidget {
@@ -15,11 +27,7 @@ class MainApp extends StatelessWidget {
       title: 'Reddit',
       theme: AppTheme.lightModeAppTheme,
       darkTheme: AppTheme.darkModeAppTheme,
-      home: const Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
-        ),
-      ),
+      home: const LoginScreen(),
     );
   }
 }
