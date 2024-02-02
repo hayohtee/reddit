@@ -1,21 +1,42 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../core/utils.dart';
+import '../../../models/user_model.dart';
 import '../repository/auth_repository.dart';
 
-final authControllerProvider = Provider(
+final authControllerProvider = StateNotifierProvider<AuthController, bool>(
   (ref) => AuthController(
-    authRepository: ref.read(authRepositoryProvider),
+    authRepository: ref.watch(authRepositoryProvider),
+    ref: ref,
   ),
 );
 
-class AuthController {
+final userProvider = StateProvider<UserModel?>((ref) => null);
+
+class AuthController extends StateNotifier<bool> {
   final AuthRepository _authRepository;
+  final Ref _ref;
 
-  const AuthController({
+  AuthController({
     required AuthRepository authRepository,
-  }) : _authRepository = authRepository;
+    required Ref ref,
+  })  : _authRepository = authRepository,
+        _ref = ref,
+        super(false);
 
-  Future<void> signInWithGoogle() async {
-    _authRepository.signInWithGoogle();
+  Future<void> signInWithGoogle(BuildContext context) async {
+    state = true;
+    final user = await _authRepository.signInWithGoogle();
+    state = false;
+
+    user.fold(
+      (failure) {
+        showSnackBar(context, failure.message);
+      },
+      (userModel) {
+        return _ref.read(userProvider.notifier).update((state) => userModel);
+      },
+    );
   }
 }
